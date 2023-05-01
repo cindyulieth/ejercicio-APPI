@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO APPI</title>
+</head>
+<body>
+    <div>
+		<video id="videoPlayer" controls>
+			Tu navegador no soporta la etiqueta video.
+		</video>
+	</div>
+	<div>
+		<button id="playBtn">Play</button>
+		<button id="pauseBtn">Pause</button>
+		<button id="volUpBtn">Volumen +</button>
+		<button id="volDownBtn">Volumen -</button>
+	</div>
+	<script>
+		window.onload = function() {
+			var videoPlayer = document.getElementById("videoPlayer");
+			var playBtn = document.getElementById("playBtn");
+			var pauseBtn = document.getElementById("pauseBtn");
+			var volUpBtn = document.getElementById("volUpBtn");
+			var volDownBtn = document.getElementById("volDownBtn");
+
+			playBtn.onclick = function() {
+				videoPlayer.play();
+			};
+
+			pauseBtn.onclick = function() {
+				videoPlayer.pause();
+			};
+
+			volUpBtn.onclick = function() {
+				if (videoPlayer.volume < 1.0) {
+					videoPlayer.volume += 0.1;
+				}
+			};
+
+			volDownBtn.onclick = function() {
+				if (videoPlayer.volume > 0.0) {
+					videoPlayer.volume -= 0.1;
+				}
+			};
+
+			videoPlayer.onerror = function() {
+				alert("No se pudo cargar el vídeo.");
+			};
+
+			videoPlayer.onloadedmetadata = function() {
+				alert("El vídeo se ha cargado correctamente.");
+			};
+
+			var fileInput = document.createElement("input");
+			fileInput.type = "file";
+			fileInput.accept = "video/*";
+
+			fileInput.onchange = function() {
+				var file = fileInput.files[0];
+				if (file) {
+					var videoURL = URL.createObjectURL(file);
+					videoPlayer.src = videoURL;
+				}
+			};
+
+			document.body.appendChild(fileInput);
+		};
+	</script>
+</body>
+</html>
