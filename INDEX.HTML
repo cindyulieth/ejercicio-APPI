@@ -46,13 +46,15 @@
 					videoPlayer.volume -= 0.1;
 				}
 			};
+		
+
 
 			videoPlayer.onerror = function() {
 				alert("No se pudo cargar el vídeo.");
 			};
 
 			videoPlayer.onloadedmetadata = function() {
-				alert("El vídeo se ha cargado correctamente.");
+				alert("El vídeo se esta cargando .");
 			};
 
 			var fileInput  = document.createElement("input");
