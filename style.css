@@ -1,0 +1,29 @@
+*{
+  
+   text-align: center;
+    
+
+}
+
+#videoPlayer {
+    margin: 50px, 50px, 0px, 50px;
+    height: 400px;
+    width: 700px;
+
+}
+
+button{
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+
+    background-color:rgb(3, 53, 87);
+    padding: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: aliceblue;
+}
+
+input{
+    margin: 18px;
+}
